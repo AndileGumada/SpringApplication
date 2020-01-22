@@ -1,0 +1,11 @@
+version: '2'
+services:
+  todo-mysql:
+    image: mysql:8
+    environment:
+      - MYSQL_DATABASE= hibernate
+      - MYSQL_USER= root
+      - MYSQL_PASSWORD=todo-password
+      - MYSQL_ROOT_PASSWORD=mysqlmysql
+    ports:
+      - 3306:3306
