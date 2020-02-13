@@ -1,7 +1,7 @@
-/home/andile/git/todo-app/src/main/java/io/jumpco/demo/todo/model/TodoService.java
-/home/andile/git/todo-app/src/main/java/io/jumpco/demo/todo/model/Todo.java
-/home/andile/git/todo-app/src/main/java/io/jumpco/demo/todo/data/TodoRepository.java
-/home/andile/git/todo-app/src/main/java/io/jumpco/demo/todo/TodoApplication.java
-/home/andile/git/todo-app/src/main/java/io/jumpco/demo/todo/services/TodoServiceImpl.java
-/home/andile/git/todo-app/src/main/java/io/jumpco/demo/todo/model/EntityNotFoundException.java
-/home/andile/git/todo-app/src/main/java/io/jumpco/demo/todo/controller/TodoController.java
+/home/andile/git/SpringApplication/src/main/java/io/jumpco/demo/todo/controller/TodoController.java
+/home/andile/git/SpringApplication/src/main/java/io/jumpco/demo/todo/TodoApplication.java
+/home/andile/git/SpringApplication/src/main/java/io/jumpco/demo/todo/services/TodoServiceImpl.java
+/home/andile/git/SpringApplication/src/main/java/io/jumpco/demo/todo/model/TodoService.java
+/home/andile/git/SpringApplication/src/main/java/io/jumpco/demo/todo/model/Todo.java
+/home/andile/git/SpringApplication/src/main/java/io/jumpco/demo/todo/data/TodoRepository.java
+/home/andile/git/SpringApplication/src/main/java/io/jumpco/demo/todo/model/EntityNotFoundException.java

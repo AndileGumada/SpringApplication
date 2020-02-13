@@ -2,6 +2,6 @@ io/jumpco/demo/todo/data/TodoRepository.class
 io/jumpco/demo/todo/model/Todo.class
 io/jumpco/demo/todo/controller/TodoController.class
 io/jumpco/demo/todo/model/EntityNotFoundException.class
-io/jumpco/demo/todo/TodoApplication.class
 io/jumpco/demo/todo/model/TodoService.class
+io/jumpco/demo/todo/TodoApplication.class
 io/jumpco/demo/todo/services/TodoServiceImpl.class
