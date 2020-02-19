@@ -29,7 +29,7 @@
    		<input type="text" class="form-control" placeholder="Title">
     </div>
     <div class="row justify-content-end" >
-           <form:errors class="alert alert-danger " role="alert" path="title"></form:errors>
+           <form:errors class="alert alert-danger" role="alert" path="title"></form:errors>
     
     </div>
 </div>
