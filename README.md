@@ -29,7 +29,7 @@ java -jar ./target/todo-0.0.1-SNAPSHOT.jar
 
 OR launch from IDE
 
-Then visit http://localhost:8080
+Then visit http://localhost:8081
 
 ![](src/main/webapp/screenshots/index.png)
 ![](src/main/webapp/screenshots/new.png)
