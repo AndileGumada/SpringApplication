@@ -31,3 +31,6 @@ OR launch from IDE
 
 Then visit http://localhost:8080
 
+![](src/main/webapp/screenshots/index.png)
+![](src/main/webapp/screenshots/new.png)
+

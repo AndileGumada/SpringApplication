@@ -17,8 +17,6 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/navBar.jsp" />
-	<br>
-
 	<div class="container">
 		<div class="card">
 			<h5 class="card-header">List of To Do items</h5>
@@ -48,7 +46,7 @@
 
 										<a
 											href="${pageContext.request.contextPath}/todo/edit/${todo.id}"
-											class="btn btn-info btn-lg"> <i class="fas fa-edit">Edit</i>
+											class="btn btn-info btn-lg"> <i class="fas fa-edit"></i>
 
 										</a>
 
@@ -57,7 +55,7 @@
 									<div class="btn-group" role="group" aria-label="Basic example">
 										<a
 											href="${pageContext.request.contextPath}/todo/delete/${todo.id}"
-											class="btn btn-info btn-lg"> <i class="fa fa-times">Delete</i>
+											class="btn btn-info btn-lg"><i class="fas fa-trash-alt"></i>
 
 										</a>
 
@@ -68,7 +66,7 @@
 
 										<a
 											href="${pageContext.request.contextPath}/todo/complete/${todo.id}"
-											class="btn btn-info btn-lg"> <i class="fa fa-check">Completed</i>
+											class="btn btn-info btn-lg"> <i class="fa fa-check"></i>
 										</a>
 
 									</div>
