@@ -2,6 +2,8 @@ package io.jumpco.demo.todo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,8 +30,19 @@ public class Todo {
     @Column(name = "order_i")
     @NotNull
     private int order;
+    
+    @Enumerated(EnumType.STRING)
+    private TodoType typeOfTodo;
+    
+    public TodoType getTypeOfTodo() {
+		return typeOfTodo;
+	}
 
-    public Long getId() {
+	public void setTypeOfTodo(TodoType typeOfTodo) {
+		this.typeOfTodo = typeOfTodo;
+	}
+
+	public Long getId() {
         return id;
     }
 

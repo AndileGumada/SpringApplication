@@ -32,5 +32,5 @@ OR launch from IDE
 Then visit http://localhost:8081
 
 ![](src/main/webapp/screenshots/index.png)
-![](src/main/webapp/screenshots/new.png)
+![](src/main/webapp/screenshots/add-edit.png)
 

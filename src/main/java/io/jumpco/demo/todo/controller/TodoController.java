@@ -1,26 +1,25 @@
 package io.jumpco.demo.todo.controller;
 
-import io.jumpco.demo.todo.data.TodoRepository;
 import io.jumpco.demo.todo.model.EntityNotFoundException;
 import io.jumpco.demo.todo.model.Todo;
 import io.jumpco.demo.todo.model.TodoService;
-import io.jumpco.demo.todo.services.TodoServiceImpl;
+import io.jumpco.demo.todo.model.TodoType;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
-import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.*;
+
+import static io.jumpco.demo.todo.model.TodoType.*;
 
 @Controller
 public class TodoController {
@@ -29,6 +28,7 @@ public class TodoController {
     public TodoController(TodoService todoService) {
         this.todoService = todoService;
     }
+
 
     @RequestMapping("/todo/create")
     public ModelAndView startCreate() {
@@ -50,49 +50,72 @@ public class TodoController {
     }
 
     @PostMapping(params = "cancel", path = "/todo/add")
-    public View cancelAdd() {
+    public String cancelAdd() {
         return home();
     }
 
     @PostMapping(params = "cancel", path = "/todo/update")
-    public View cancelUpdate() {
+    public String cancelUpdate() {
         return home();
     }
 
     @PostMapping("/todo/update")
-    public View update(@Valid @ModelAttribute Todo todo) throws EntityNotFoundException {
+    public ModelAndView update(@Valid @ModelAttribute Todo todo, BindingResult bindingResult, Model model) throws EntityNotFoundException {
+        if (bindingResult.hasErrors()) {
+            ModelAndView result = new ModelAndView("add-edit");
+            result.addObject("mode", "update");
+            result.addObject("modeTitle", "Update");
+            result.addAllObjects(model.asMap());
+            return result;
+        }
         todoService.update(todo);
-        return home();
+        return new ModelAndView(home());
     }
 
     @PostMapping("/todo/add")
-    public ModelAndView create(@Valid @ModelAttribute Todo todo, BindingResult bindingResult, Model model) {
-        if(bindingResult.hasErrors()){
-            ModelAndView results = new ModelAndView("add-edit");
-            results.addAllObjects(model.asMap());
-            results.addObject("mode", "add");
-            results.addObject("modeTitle", "Create");
-            return results;
+    public ModelAndView create(@Valid @ModelAttribute Todo todo, BindingResult bindingResult, Model model, HttpServletRequest request) throws Exception {
+        if (bindingResult.hasErrors()) {
+            ModelAndView result = new ModelAndView("add-edit");
+            result.addObject("mode", "add");
+            result.addObject("modeTitle", "Create");
+            result.addAllObjects(model.asMap());
+
+           // Map referenceData = new HashMap();
+
+            Map<String, String> todoType = new LinkedHashMap<>();
+            todoType.put("TASK","TASK");
+            todoType.put("BUG","BUG");
+            todoType.put("FEATURE","FEATURE");
+            todoType.put("ENHANCEMENT","ENHANCEMENT");
+            todoType.put("MAINTENANCE","MAINTENANCE");
+
+            result.addObject("todoMap", todoType);
+            //result.addObject();
+           // referenceData.put("typeList", type);
+//           for(TodoType item : TodoType.values()) {
+//                System.out.println(item.name(), item);
+//            }
+
+            return result;
         }
         todoService.create(todo);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView(home());
     }
 
-    
     @GetMapping(value = "/todo/delete/{id}")
-    public View delete(@PathVariable("id") Long id) {
+    public String delete(@PathVariable("id") Long id) {
         todoService.delete(id);
         return home();
     }
 
     @GetMapping(value = "/todo/complete/{id}")
-    public View complete(@PathVariable("id") Long id) throws EntityNotFoundException {
+    public String complete(@PathVariable("id") Long id) throws EntityNotFoundException {
         todoService.complete(id);
         return home();
     }
 
-    private RedirectView home() {
-        return new RedirectView("/");
+    private String home() {
+        return "redirect:/";
     }
 
     @GetMapping("/")
@@ -101,4 +124,5 @@ public class TodoController {
         result.addObject("todos", todoService.list(null));
         return result;
     }
+
 }

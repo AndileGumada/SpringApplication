@@ -1,4 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,59 +11,47 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/jsp/navBar.jsp" />
-	<div class="container">
-		<div class="card w-55">
-
-			<h5
-				class="card-header info-color white-text bg-primary text-center py-4">
-				<strong>${modeTitle} Todo</strong>
-			</h5>
-
-			<!--Card content-->
-			<div class="card-body px-lg-5">
-
-				<form:form action="${pageContext.request.contextPath}/todo/${mode}"
-					method="post" modelAttribute="todo"
-					style="width: 500px; margin: auto">
-
-					<form:hidden path="id" />
-
-					<div class="form-group offset-1 col-40">
-						<form:label path="title"></form:label>
-						<div class="row justify-content-start">
-							<input type="text" class="form-control" placeholder="Title">
-						</div>
-						<div class="row justify-content-end">
-							<form:errors class="alert alert-danger" role="alert" path="title"></form:errors>
-
-						</div>
-					</div>
-
-					<div class="form-group offset-1 col-15	">
-						<form:label path="description"></form:label>
-
-						<div class="row justify-content-start">
-							<form:textarea path="description" class="form-control" cols="40"
-								rows="15" placeholder="Description"></form:textarea>
-
-						</div>
-						<div class="row justify-content-end">
-							<form:errors class="alert alert-danger" role="alert"
-								path="description"></form:errors>
-
-						</div>
-					</div>
-					<div class="row offset-1 col-6">
-
-						<input class="btn btn-primary" type="submit" name="submit"
-							value="Submit">
-						<form:button class="btn btn-primary" name="cancel">Cancel</form:button>
-					</div>
-
-				</form:form>
+<jsp:include page="/WEB-INF/jsp/navBar.jsp"/>
+<div class="container col-9">
+	<form:form action="${pageContext.request.contextPath}/todo/${mode}" method="post" modelAttribute="todo">
+		<form:hidden path="id"/>
+		<div class="row bg-primary text-white mt-4">
+			<div class="col-12 p-2">
+				<h4>${modeTitle} Todo</h4>
 			</div>
 		</div>
-	</div>
+		<div class="form-group offset-1 col-10">
+			<form:label path="title">Title</form:label>
+			<div class="row justify-content-start">
+				<form:input class="form-control" path="title"></form:input>
+			</div>
+			<div class=form-group"">
+
+				<h4>Please select:</h4>
+					<form:select path="${todoType.item}">
+						<form:option value="None" label="-- Select --" />
+						<form:options items="${todoMaps}" />
+					</form:select>
+					</td>
+			</div>
+			<div class="row justify-content-end">
+				<form:errors class="alert alert-danger " role="alert" path="title"></form:errors>
+			</div>
+		</div>
+		<div class="form-group offset-1 col-10">
+			<form:label path="description">Description</form:label>
+			<div class="row justify-content-start">
+				<form:textarea class="form-control" path="description" cols="60" rows="10"></form:textarea>
+			</div>
+			<div class="row justify-content-end">
+				<form:errors class="alert alert-danger" role="alert" path="description"></form:errors>
+			</div>
+		</div>
+		<div class="row offset-1 col-10">
+			<input class="btn btn-primary" type="submit" name="submit" value="Submit">
+			<form:button class="btn btn-primary" name="cancel">Cancel</form:button>
+		</div>
+	</form:form>
+</div>
 </body>
 </html>
