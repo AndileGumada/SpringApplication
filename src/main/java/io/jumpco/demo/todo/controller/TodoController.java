@@ -80,8 +80,6 @@ public class TodoController {
             result.addObject("modeTitle", "Create");
             result.addAllObjects(model.asMap());
 
-           // Map referenceData = new HashMap();
-
             Map<String, String> todoType = new LinkedHashMap<>();
             todoType.put("TASK","TASK");
             todoType.put("BUG","BUG");
@@ -90,12 +88,6 @@ public class TodoController {
             todoType.put("MAINTENANCE","MAINTENANCE");
 
             result.addObject("todoMap", todoType);
-            //result.addObject();
-           // referenceData.put("typeList", type);
-//           for(TodoType item : TodoType.values()) {
-//                System.out.println(item.name(), item);
-//            }
-
             return result;
         }
         todoService.create(todo);

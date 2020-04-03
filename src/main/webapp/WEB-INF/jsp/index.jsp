@@ -31,6 +31,7 @@
 							<th scope="col"><label>Completed</label></th>
 							<th scope="col"><label>Description</label></th>
 							<th scope="col"><label>Action</label></th>
+							<th scope="col"><label>Type</label></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -40,6 +41,7 @@
 								<td>${todo.completed}</td>
 
 								<td>${todo.description}</td>
+								<td>${todo.typeOfTodo.name}</td>
 								<td>
 
 									<div class="btn-group" role="group" aria-label="Basic example">

@@ -30,7 +30,10 @@ java -jar ./target/todo-0.0.1-SNAPSHOT.jar
 OR launch from IDE
 
 Then visit http://localhost:8081
-
+-Home page with the Todo items
 ![](src/main/webapp/screenshots/index.png)
-![](src/main/webapp/screenshots/add-edit.png)
+- Create page with the drop-down box
+![](src/main/webapp/screenshots/create.png)
 
+- Todo items stored in the PostgresSQL database 
+![](src/main/webapp/screenshots/databaseTodo.png)

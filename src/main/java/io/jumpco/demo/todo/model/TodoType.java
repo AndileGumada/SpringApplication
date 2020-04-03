@@ -2,11 +2,11 @@ package io.jumpco.demo.todo.model;
 
 public enum TodoType {
 	
-	TASK("T"),
-	BUG("B"),
-	FEATURE ("F"),
-	ENHANCEMENT("E"),
-	MAINTENANCE("M");
+	TASK("TASK"),
+	BUG("BUG"),
+	FEATURE ("FEATURE"),
+	ENHANCEMENT("ENHANCEMENT"),
+	MAINTENANCE("MAINTENANCE");
 
 	private String name;
 

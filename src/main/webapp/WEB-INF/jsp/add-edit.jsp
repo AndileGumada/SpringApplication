@@ -28,11 +28,9 @@
 			<div class=form-group"">
 
 				<h4>Please select:</h4>
-					<form:select path="${todoType.item}">
-						<form:option value="None" label="-- Select --" />
-						<form:options items="${todoMaps}" />
-					</form:select>
-					</td>
+				<form:select path="typeOfTodo">
+					<form:options for=" type : ${types}" text="type.name" value="${types}"></form:options>
+				</form:select>
 			</div>
 			<div class="row justify-content-end">
 				<form:errors class="alert alert-danger " role="alert" path="title"></form:errors>
